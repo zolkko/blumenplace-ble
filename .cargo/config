@@ -1,0 +1,4 @@
+[target]
+linker = "arm-none-eabi-gcc"
+ar = "arm-none-eabi-ar"
+

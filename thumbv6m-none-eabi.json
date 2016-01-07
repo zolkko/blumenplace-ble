@@ -1,0 +1,33 @@
+{
+    "arch": "arm",
+    "cpu": "cortex-m0",
+    "os": "none",
+    "env": "eabi",
+    "vendor": "unknown",
+    "llvm-target": "thumbv6m-none-eabi",
+    "target-endian": "little",
+    "target-pointer-width": "32",
+    "data-layout": "e-m:e-p:32:32-i64:64-v128:64:128-a:0:32-n32-S64",
+    "pre-link-args": ["-Tnrf51.ld"],
+    "post-link-args": [
+        "-march=armv6-m",
+        "-mthumb",
+        "-mabi=aapcs",
+        "-mfloat-abi=soft",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fmessage-length=0",
+        "-fno-delete-null-pointer-checks",
+        "-fomit-frame-pointer",
+        "-funsigned-bitfields",
+        "-fno-common",
+        "-fno-builtin",
+        "-lc", "-lm", "-lgcc", "-lnosys",
+        "--specs=nosys.specs"
+    ],
+    "executables": true,
+    "relocation-model": "static",
+    "no-compiler-rt": true,
+    "no_compiler_rt": true,
+    "archive-format": "gnu"
+}
