@@ -2,4 +2,5 @@
 target/*
 *.swo
 *.swv
+*.swp
 

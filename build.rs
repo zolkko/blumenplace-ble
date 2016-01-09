@@ -44,8 +44,29 @@ fn main() {
         .include("third_party/nrf51_sdk/toolchain/gcc")
         .include("third_party/nrf51_sdk/device")
         .include("third_party/nrf51_sdk/softdevice/s110/headers")
+        .include("third_party/nrf51_sdk/softdevice/common/softdevice_handler")
+        .include("third_party/nrf51_sdk/libraries/util")
+        .include("third_party/nrf51_sdk/libraries/scheduler")
+        .include("third_party/nrf51_sdk/libraries/timer")
+        .include("third_party/nrf51_sdk/ble/ble_advertising")
+        .include("third_party/nrf51_sdk/ble/common")
+        .include("third_party/nrf51_sdk/libraries/trace")
+        .include("third_party/nrf51_sdk/drivers_nrf/pstorage")
+        .include("third_party/nrf51_sdk/drivers_nrf/pstorage/config")
+        .include("third_party/nrf51_sdk/drivers_nrf/ble_flash")
+        .include("third_party/nrf51_sdk/libraries/timer")
+        .include("third_party/nrf51_sdk/drivers_nrf/delay")
+
         .target("arm-none-eabi")
+
         .file("third_party/nrf51_sdk/toolchain/system_nrf51.c")
         .file("third_party/nrf51_sdk/toolchain/gcc/gcc_startup_nrf51.s")
+        .file("third_party/nrf51_sdk/softdevice/common/softdevice_handler/softdevice_handler.c")
+        .file("third_party/nrf51_sdk/softdevice/common/softdevice_handler/softdevice_handler_appsh.c")
+        .file("third_party/nrf51_sdk/ble/common/ble_advdata.c")
+        .file("third_party/nrf51_sdk/ble/ble_advertising/ble_advertising.c")
+        .file("third_party/nrf51_sdk/libraries/timer/app_timer.c")
+
+        .file("src/test.c")
         .compile("libnrf51.a");
 }
