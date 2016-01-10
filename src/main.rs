@@ -1,4 +1,6 @@
 #![feature(lang_items, main)]
+#![feature(plugin)]
+#![plugin(macro_svc_call)]
 #![no_std]
 #![no_main]
 #![feature(asm)]
@@ -115,6 +117,8 @@ fn ble_enable(params: &EnableParams) -> Result<(), NrfError> {
 
 fn ble_version_get() -> Result<Version, NrfError> {
     let mut ver: Version = Version::new();
+
+    svc_call!(0x60, &mut ver as *mut Version, &"test");
 
     match unsafe { wrap_ble_version_get(&mut ver as *mut Version) } {
         0 => { Ok(ver) },
